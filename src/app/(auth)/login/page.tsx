@@ -277,40 +277,37 @@ export default function LoginPage() {
         <path id="bt3" d="M0 840 H420 V780 H640 V840 H900" fill="none" />
       </svg>
 
-      {/* ── CENTER LAYOUT ── */}
+      {/* ── FULL SCREEN LAYOUT ── */}
       <div
         style={{
           position: "relative", zIndex: 1,
-          minHeight: "100vh",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          padding: "24px 16px",
+          height: "100vh",
+          display: "flex",
           fontFamily: "'Plus Jakarta Sans', sans-serif",
         }}
       >
-        {/* CARD */}
+        {/* CONTAINER */}
         <div
           className="pn-card"
           style={{
             position: "relative",
             display: "flex",
             width: "100%",
-            maxWidth: 960,
-            minHeight: 610,
-            background: "#0D1124",
-            border: "1px solid rgba(99,71,245,0.2)",
-            borderRadius: 22,
+            height: "100%",
+            background: "rgba(13, 17, 36, 0.6)",
+            backdropFilter: "blur(20px)",
             overflow: "hidden",
-            boxShadow: "0 0 0 1px rgba(99,71,245,0.06), 0 24px 80px rgba(5,6,15,0.7), inset 0 1px 0 rgba(255,255,255,0.04)",
           }}
         >
           {/* ══════════ LEFT PANEL ══════════ */}
           <div
             style={{
-              width: 430,
+              flex: 1,
+              maxWidth: "45%",
               flexShrink: 0,
               background: "#090C1A",
               borderRight: "1px solid rgba(99,71,245,0.14)",
-              padding: "44px 40px",
+              padding: "60px 40px",
               display: "flex",
               flexDirection: "column",
               position: "relative",
