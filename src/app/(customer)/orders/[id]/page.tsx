@@ -51,56 +51,56 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
     !completedPayment;
 
   return (
-    <div className="max-w-3xl mx-auto space-y-6">
+    <div className="max-w-3xl mx-auto space-y-6 text-slate-100 font-sans">
       {/* ── Header ──────────────────────────────────────────────────────── */}
       <div className="flex items-start justify-between flex-wrap gap-3">
         <div>
           <div className="flex items-center gap-3 flex-wrap">
-            <h1 className="text-2xl font-bold font-mono text-brand-700">{order.order_number}</h1>
+            <h1 className="text-2xl font-bold font-mono text-[#9D82F8]">{order.order_number}</h1>
             <OrderStatusBadge status={order.status} />
           </div>
-          <p className="text-slate-600 mt-1">{order.project_name}</p>
+          <p className="text-slate-400 mt-1 font-medium">{order.project_name}</p>
         </div>
-        <Link href="/dashboard" className="text-sm text-slate-500 hover:text-slate-700">
+        <Link href="/dashboard" className="text-sm text-slate-500 hover:text-slate-300 transition-colors">
           ← My Orders
         </Link>
       </div>
 
       {/* ── Status Timeline ──────────────────────────────────────────────── */}
-      <div className="bg-white border border-slate-200 rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-5">Order Progress</h2>
+      <div className="bg-[#0b0f19]/60 backdrop-blur-md border border-purple-950/20 rounded-xl p-6 shadow-lg">
+        <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-5">Order Progress</h2>
         <StatusTimeline currentStatus={order.status} history={order.status_history ?? []} />
         {order.expected_delivery && (
           <p className="mt-5 text-sm text-slate-500 text-center">
-            Estimated delivery: <span className="font-semibold text-slate-800">{formatDate(order.expected_delivery)}</span>
+            Estimated delivery: <span className="font-semibold text-slate-300">{formatDate(order.expected_delivery)}</span>
           </p>
         )}
       </div>
 
       {/* ── Quote / Payment ──────────────────────────────────────────────── */}
       {activeQuote && (
-        <div className="bg-white border border-slate-200 rounded-xl p-6">
-          <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4">Quote</h2>
+        <div className="bg-[#0b0f19]/60 backdrop-blur-md border border-purple-950/20 rounded-xl p-6 shadow-lg">
+          <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-4">Quote</h2>
           <div className="flex items-center justify-between flex-wrap gap-4">
             <div>
-              <p className="text-3xl font-bold text-slate-900">{formatLKR(activeQuote.amount_lkr)}</p>
+              <p className="text-3xl font-bold text-emerald-400">{formatLKR(activeQuote.amount_lkr)}</p>
               <p className="text-sm text-slate-500 mt-0.5">
                 Valid until: {formatDateTime(activeQuote.valid_until)}
               </p>
               {activeQuote.customer_notes && (
-                <p className="text-sm text-slate-600 mt-2 p-3 bg-slate-50 rounded-md">
+                <p className="text-sm text-slate-300 mt-2 p-3 bg-slate-900/50 rounded-md border border-purple-950/20">
                   {activeQuote.customer_notes}
                 </p>
               )}
             </div>
             {completedPayment ? (
-              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-100 text-emerald-700 rounded-md text-sm font-semibold">
+              <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-500/10 text-emerald-400 rounded-md text-sm font-bold border border-emerald-500/20">
                 ✓ Paid
               </span>
             ) : canPay ? (
               <Link
                 href={`/orders/${order.id}/pay`}
-                className="flex items-center gap-2 bg-brand-700 text-white font-semibold px-6 py-3 rounded-md hover:bg-brand-900 transition-colors"
+                className="flex items-center gap-2 bg-gradient-to-r from-[#7B5CF6] to-[#4530C8] text-white font-semibold px-6 py-3 rounded-md hover:from-[#8d72f8] hover:to-[#553ed4] transition-all shadow-md shadow-purple-900/30"
               >
                 <CreditCard className="w-4 h-4" />
                 Accept &amp; Pay
@@ -111,8 +111,8 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
       )}
 
       {/* ── Order Details ────────────────────────────────────────────────── */}
-      <div className="bg-white border border-slate-200 rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4">Order Details</h2>
+      <div className="bg-[#0b0f19]/60 backdrop-blur-md border border-purple-950/20 rounded-xl p-6 shadow-lg">
+        <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-4">Order Details</h2>
         <div className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
           {[
             ["Units",          `${order.units} unit${order.units !== 1 ? "s" : ""}`],
@@ -121,32 +121,32 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
             ["Submitted",      formatDate(order.created_at)],
           ].map(([label, value]) => (
             <div key={label}>
-              <p className="text-slate-400 text-xs uppercase tracking-wide">{label}</p>
-              <p className="font-medium text-slate-900 mt-0.5">{value}</p>
+              <p className="text-slate-500 text-xs uppercase tracking-wide">{label}</p>
+              <p className="font-medium text-white mt-0.5">{value}</p>
             </div>
           ))}
           {order.customer_notes && (
             <div className="col-span-2">
-              <p className="text-slate-400 text-xs uppercase tracking-wide">Your Notes</p>
-              <p className="text-slate-700 mt-0.5">{order.customer_notes}</p>
+              <p className="text-slate-500 text-xs uppercase tracking-wide">Your Notes</p>
+              <p className="text-slate-300 mt-0.5">{order.customer_notes}</p>
             </div>
           )}
         </div>
       </div>
 
       {/* ── Uploaded Files ───────────────────────────────────────────────── */}
-      <div className="bg-white border border-slate-200 rounded-xl p-6">
-        <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wide mb-4">Uploaded Files</h2>
+      <div className="bg-[#0b0f19]/60 backdrop-blur-md border border-purple-950/20 rounded-xl p-6 shadow-lg">
+        <h2 className="text-sm font-semibold text-slate-400 uppercase tracking-wide mb-4">Uploaded Files</h2>
         {order.order_files?.length === 0 ? (
-          <p className="text-sm text-slate-400">No files uploaded yet.</p>
+          <p className="text-sm text-slate-500">No files uploaded yet.</p>
         ) : (
           <div className="space-y-2">
             {order.order_files?.map((file: {
               id: string; file_type: string; original_name: string; file_size_bytes: number | null
             }) => (
-              <div key={file.id} className="flex items-center justify-between py-2 border-b border-slate-100 last:border-0">
+              <div key={file.id} className="flex items-center justify-between py-2 border-b border-purple-950/20 last:border-0">
                 <div>
-                  <p className="text-sm font-medium text-slate-900">
+                  <p className="text-sm font-medium text-white">
                     {FILE_TYPE_LABELS[file.file_type as keyof typeof FILE_TYPE_LABELS]}
                   </p>
                   <p className="text-xs text-slate-400">
@@ -155,7 +155,7 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
                 </div>
                 <a
                   href={`/api/files/${file.id}`}
-                  className="flex items-center gap-1 text-xs text-brand-500 hover:underline"
+                  className="flex items-center gap-1 text-xs text-[#9D82F8] hover:text-[#b49ffd] font-semibold transition-colors hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -168,12 +168,12 @@ export default async function OrderDetailPage({ params }: { params: Promise<{ id
       </div>
 
       {/* ── Support ──────────────────────────────────────────────────────── */}
-      <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 text-sm text-slate-500 text-center">
+      <div className="bg-slate-900/30 border border-purple-950/20 rounded-xl p-5 text-sm text-slate-400 text-center">
         Questions about this order? Call or WhatsApp us at{" "}
-        <a href="tel:+94XXXXXXXXX" className="text-brand-500 hover:underline font-medium">
+        <a href="tel:+94XXXXXXXXX" className="text-[#9D82F8] hover:text-[#b49ffd] font-medium hover:underline transition-colors">
           +94 XX XXX XXXX
         </a>{" "}
-        and quote your order ID: <span className="font-mono font-semibold text-slate-700">{order.order_number}</span>
+        and quote your order ID: <span className="font-mono font-semibold text-slate-300">{order.order_number}</span>
       </div>
     </div>
   );
