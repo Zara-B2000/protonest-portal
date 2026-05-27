@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 215 30% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 215 30% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 30% 15%;
+    --primary: 251 75% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 251 30% 96%;
+    --secondary-foreground: 251 30% 25%;
+    --muted: 251 30% 96%;
+    --muted-foreground: 251 25% 45%;
+    --accent: 251 30% 94%;
+    --accent-foreground: 251 30% 25%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 251 15% 88%;
+    --input: 251 15% 91%;
+    --ring: 251 95% 58%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Mobile-first: ensure inputs are usable on small viewports */
+  input[type="file"] {
+    @apply w-full;
+  }
+}
+
+/* ── Status badge colours ─────────────────────────────────────────────── */
+.status-quote_pending       { @apply bg-amber-100 text-amber-800 border-amber-200; }
+.status-quote_ready         { @apply bg-blue-100 text-blue-800 border-blue-200; }
+.status-payment_completed   { @apply bg-emerald-100 text-emerald-800 border-emerald-200; }
+.status-components_received { @apply bg-purple-100 text-purple-800 border-purple-200; }
+.status-in_assembly         { @apply bg-indigo-100 text-indigo-800 border-indigo-200; }
+.status-inspection          { @apply bg-sky-100 text-sky-800 border-sky-200; }
+.status-ready_for_delivery  { @apply bg-teal-100 text-teal-800 border-teal-200; }
+.status-delivered           { @apply bg-green-100 text-green-800 border-green-200; }
