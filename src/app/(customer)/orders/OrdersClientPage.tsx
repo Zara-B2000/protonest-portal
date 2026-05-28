@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { OrderStatusBadge } from "@/components/OrderStatusBadge";
-import { formatDate, formatLKR } from "@/lib/utils";
+import { OrderStatusBadge } from "@/components/shared/OrderStatusBadge";
+import { formatDate, formatLKR } from "@/utils";
 import {
   Search,
   PlusCircle,

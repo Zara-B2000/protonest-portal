@@ -3,7 +3,7 @@ import { createServiceClient } from "@/services/supabase/server";
 import { getCurrentProfile } from "@/services/auth";
 import { OrderStatusBadge } from "@/components/shared/OrderStatusBadge";
 import { formatDate, formatLKR } from "@/utils";
-import { PlusCircle, PackageOpen } from "lucide-react";
+import { PlusCircle, PackageOpen, Sparkles, ArrowRight, TrendingUp, Clock, Layers, CircleDollarSign, FileText, ShieldCheck } from "lucide-react";
 import type { OrderStatus, PaymentStatus, QuoteStatus } from "@/types";
 import { redirect } from "next/navigation";
 

@@ -9,7 +9,7 @@ import {
   type AssemblyType, type InspectionLevel, type SourcingOption, type FileType,
 } from "@/types";
 import { validateFileType, validateFileSize, formatFileSize } from "@/utils";
-import { AlertCircle, CheckCircle, ChevronDown, HelpCircle, Loader2, MessageCircle, Phone } from "lucide-react";
+import { AlertCircle, ArrowRight, CheckCircle, ChevronDown, HelpCircle, Layers, Loader2, MessageCircle, MessageSquare, Phone, PlusCircle, ShieldCheck } from "lucide-react";
 
 type Step = 1 | 2 | 3 | 4;
 

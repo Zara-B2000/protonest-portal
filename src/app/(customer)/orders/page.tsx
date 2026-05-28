@@ -1,5 +1,5 @@
-import { createServiceClient } from "@/lib/supabase/server";
-import { getCurrentProfile } from "@/lib/auth/auth";
+import { createServiceClient } from "@/services/supabase/server";
+import { getCurrentProfile } from "@/services/auth";
 import { redirect } from "next/navigation";
 import OrdersClientPage from "./OrdersClientPage";
 

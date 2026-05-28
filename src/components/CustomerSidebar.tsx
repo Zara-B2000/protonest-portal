@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import UnifiedSignOutButton from "@/components/SignOutButton";
+import UnifiedSignOutButton from "@/components/shared/SignOutButton";
 import { Menu, X } from "lucide-react";
 
 interface Props {

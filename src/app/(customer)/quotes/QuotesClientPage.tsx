@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { formatDate, formatLKR } from "@/lib/utils";
+import { formatDate, formatLKR } from "@/utils";
 import {
   Search,
   FileText,
