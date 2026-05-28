@@ -90,55 +90,17 @@ export default async function DashboardPage() {
           </div>
         </div>
 
-        {/* Dynamic PCB SVG Illustration */}
+        {/* PCB Assembly Cover Image */}
         <div className="relative z-10 hidden md:block flex-shrink-0">
-          <svg viewBox="0 0 200 120" className="w-[260px] h-auto drop-shadow-[0_0_20px_rgba(123,92,246,0.35)]" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="200" height="120" rx="10" fill="#090a12" stroke="rgba(123,92,246,0.25)" strokeWidth="1.5"/>
-            
-            {/* Grid pattern */}
-            <path d="M 0 20 H 200 M 0 40 H 200 M 0 60 H 200 M 0 80 H 200 M 0 100 H 200" stroke="rgba(123,92,246,0.03)" strokeWidth="0.8"/>
-            <path d="M 20 0 V 120 M 40 0 V 120 M 60 0 V 120 M 80 0 V 120 M 100 0 V 120 M 120 0 V 120 M 140 0 V 120 M 160 0 V 120 M 180 0 V 120" stroke="rgba(123,92,246,0.03)" strokeWidth="0.8"/>
-
-            {/* Traces */}
-            <path d="M 20 60 H 60 L 80 80 H 145" stroke="url(#trace-grad)" strokeWidth="1.5" strokeLinecap="round" strokeDasharray="6 3" />
-            <path d="M 40 100 H 100 L 120 80" stroke="#7B5CF6" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-            <path d="M 120 20 H 155 L 175 40 V 85" stroke="#4530C8" strokeWidth="1.2" strokeLinecap="round" />
-            <path d="M 15 25 H 45 L 55 35 V 70" stroke="#38bdf8" strokeWidth="1" opacity="0.4" />
-
-            {/* Microchip */}
-            <rect x="75" y="30" width="50" height="40" rx="4" fill="#11131e" stroke="#303852" strokeWidth="1.5" />
-            <circle cx="83" cy="38" r="1.5" fill="#7B5CF6" />
-            {/* Pins */}
-            <rect x="70" y="36" width="5" height="2" fill="#8896B8" rx="0.5" />
-            <rect x="70" y="44" width="5" height="2" fill="#8896B8" rx="0.5" />
-            <rect x="70" y="52" width="5" height="2" fill="#8896B8" rx="0.5" />
-            <rect x="70" y="60" width="5" height="2" fill="#8896B8" rx="0.5" />
-            <rect x="125" y="36" width="5" height="2" fill="#8896B8" rx="0.5" />
-            <rect x="125" y="44" width="5" height="2" fill="#8896B8" rx="0.5" />
-            <rect x="125" y="52" width="5" height="2" fill="#8896B8" rx="0.5" />
-            <rect x="125" y="60" width="5" height="2" fill="#8896B8" rx="0.5" />
-            
-            <text x="100" y="53" fill="#8896B8" fontSize="7" fontWeight="700" textAnchor="middle" fontFamily="sans-serif" letterSpacing="0.05em">PROTONEST</text>
-            <text x="100" y="61" fill="#7B5CF6" fontSize="6.2" fontWeight="800" textAnchor="middle" fontFamily="monospace" className="animate-pulse">ONLINE</text>
-
-            {/* Components and solder dots */}
-            <rect x="15" y="55" width="10" height="10" rx="1.5" fill="#1e2235" stroke="#303852" strokeWidth="1" />
-            <circle cx="20" cy="60" r="1" fill="#fbbf24" />
-            
-            <circle cx="145" cy="80" r="3" fill="#38bdf8" opacity="0.8"/>
-            <circle cx="145" cy="80" r="1.2" fill="#fff" />
-            
-            <circle cx="175" cy="85" r="3" fill="#10b981" opacity="0.8"/>
-            <circle cx="175" cy="85" r="1.2" fill="#fff" />
-            
-            <defs>
-              <linearGradient id="trace-grad" x1="20" y1="60" x2="145" y2="80" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#7B5CF6" />
-                <stop offset="0.5" stopColor="#38bdf8" />
-                <stop offset="1" stopColor="#10b981" />
-              </linearGradient>
-            </defs>
-          </svg>
+          <div className="relative w-[260px] h-[156px] rounded-xl overflow-hidden border border-purple-800/25 shadow-2xl shadow-purple-950/20 group transition-all duration-300 hover:border-purple-500/35">
+            <img
+              src="/pcb-assembly-process.jpg"
+              alt="Protonest Manual Component Tweezers PCB Placement"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            {/* Glow overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-transparent opacity-80 pointer-events-none" />
+          </div>
         </div>
       </div>
 
@@ -351,44 +313,57 @@ export default async function DashboardPage() {
             </div>
           </div>
 
-          {/* Dedicated Support Specialist Panel */}
+          {/* Why Protonest Assembly Panel */}
           <div className="bg-[#0b0f19]/60 backdrop-blur-md border border-purple-950/20 rounded-2xl p-5 shadow-lg relative overflow-hidden">
             {/* Soft decorative glow */}
-            <div className="absolute bottom-0 right-0 w-32 h-32 bg-emerald-600/5 rounded-full blur-2xl pointer-events-none" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/5 rounded-full blur-2xl pointer-events-none" />
             
-            <h3 className="text-sm font-bold text-white tracking-wider uppercase mb-4">Dedicated Support</h3>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="relative">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#7B5CF6] to-[#4530C8] flex items-center justify-center font-bold text-white text-sm shadow">
-                  SP
+            <h3 className="text-xs font-bold text-[#9D82F8] tracking-wider uppercase mb-4 flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5 text-[#9D82F8]" />
+              Why Protonest Assembly?
+            </h3>
+            
+            <ul className="space-y-4">
+              <li className="flex gap-3">
+                <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400">
+                  <span className="text-base select-none">⚡</span>
                 </div>
-                {/* Active indicator dot */}
-                <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 border-2 border-[#070913] rounded-full" />
-              </div>
-              <div>
-                <h4 className="text-xs font-bold text-slate-200">Shanuka Perera</h4>
-                <p className="text-[10px] text-slate-500">Technical Account Specialist</p>
-              </div>
-            </div>
+                <div>
+                  <h4 className="text-xs font-bold text-slate-200">Quick quotes, no back-and-forth delays</h4>
+                  <p className="text-[10px] text-slate-500 mt-0.5">Instant online setup and automatic verification.</p>
+                </div>
+              </li>
+              
+              <li className="flex gap-3">
+                <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
+                  <span className="text-base select-none">🔩</span>
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-slate-200">From bare board to assembled unit</h4>
+                  <p className="text-[10px] text-slate-500 mt-0.5">End-to-end component sourcing, stencil & soldering.</p>
+                </div>
+              </li>
 
-            <p className="text-xs text-slate-400 leading-relaxed mb-4">
-              Need custom modifications, multi-layer stackup designs, or instant verification for your Gerber files?
-            </p>
+              <li className="flex gap-3">
+                <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400">
+                  <span className="text-base select-none">🧪</span>
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-slate-200">Every board tested before dispatch</h4>
+                  <p className="text-[10px] text-slate-500 mt-0.5">Rigorous AOI and functional quality inspection.</p>
+                </div>
+              </li>
 
-            <div className="grid grid-cols-2 gap-2">
-              <a
-                href="mailto:support@protonest.com"
-                className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-slate-950/40 border border-purple-950/25 hover:border-purple-500/20 text-slate-300 hover:text-white text-xs font-semibold transition-all"
-              >
-                <MessageSquare className="w-3.5 h-3.5 text-[#9D82F8]" /> Email Support
-              </a>
-              <a
-                href="tel:+94112345678"
-                className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-slate-950/40 border border-purple-950/25 hover:border-purple-500/20 text-slate-300 hover:text-white text-xs font-semibold transition-all"
-              >
-                <PhoneCall className="w-3.5 h-3.5 text-emerald-400" /> Direct Line
-              </a>
-            </div>
+              <li className="flex gap-3">
+                <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
+                  <span className="text-base select-none">🤝</span>
+                </div>
+                <div>
+                  <h4 className="text-xs font-bold text-slate-200">Real humans behind every order</h4>
+                  <p className="text-[10px] text-slate-500 mt-0.5">Engaged technical review and engineering assistance.</p>
+                </div>
+              </li>
+            </ul>
           </div>
 
           {/* DFM Specifications Card */}
