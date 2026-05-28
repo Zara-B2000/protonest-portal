@@ -25,7 +25,7 @@ function orderCustomer(profiles: OrderProfile | OrderProfile[] | null | undefine
   if (!profiles) return null;
   return Array.isArray(profiles) ? profiles[0] ?? null : profiles;
 }
-export const dynamic = 'force-dynamic';
+
 export default async function AdminDashboardPage() {
   const profile = await getCurrentProfile();
   if (!profile) redirect("/login");
