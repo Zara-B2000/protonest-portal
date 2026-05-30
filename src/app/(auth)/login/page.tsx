@@ -258,7 +258,6 @@ export default function LoginPage() {
               background: "#060813",
               borderRight: "1px solid rgba(99,71,245,0.12)",
               padding: "50px 44px 40px 44px",
-              display: "flex",
               flexDirection: "column",
               position: "relative",
               overflow: "hidden",
